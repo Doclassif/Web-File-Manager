@@ -8,6 +8,14 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    public function favorites()
+    {
+        return $this->hasMany('App\Favorite', 'user_id');
+    }
+    public function shareds()
+    {
+        return $this->hasMany('App\Shared', 'user_id');
+    }
     use Notifiable;
 
     /**
